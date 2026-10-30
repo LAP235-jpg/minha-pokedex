@@ -9,7 +9,7 @@ import { fetchPokemonListPage, type PokemonListItemUI } from '../../services/pok
 import { getFavoriteIds, getFavoritePokemons } from '../../services/favoritesStorage';
 import { getLastViewedPokemons, type LastViewedPokemon } from '../../services/lastViewedStorage';
 
-const PAGE_SIZE = 10;
+const PAGE_SIZE = 20;
 
 const TYPE_COLORS: Record<string, string> = {
   normal: '#A8A77A',
@@ -62,7 +62,7 @@ export default function PokemonListScreen() {
     try {
       setError(null);
       setIsInitialLoading(true);
-      const page = await fetchPokemonListPage(PAGE_SIZE, 0);
+      const page = await fetchPokemonListPage(PAGE_SIZE, 20);
       setItems(page.items);
       setOffset(PAGE_SIZE);
       setHasNextPage(Boolean(page.next));
@@ -92,7 +92,7 @@ export default function PokemonListScreen() {
     try {
       setError(null);
       setIsRefreshing(true);
-      const page = await fetchPokemonListPage(PAGE_SIZE, 0);
+      const page = await fetchPokemonListPage(PAGE_SIZE, 20);
       setItems(page.items);
       setOffset(PAGE_SIZE);
       setHasNextPage(Boolean(page.next));

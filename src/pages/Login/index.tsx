@@ -7,11 +7,15 @@ import { View,
          ActivityIndicator } from 'react-native';
 import Logo from '../../assets/logo.png';
 import { createStyles } from './styles';
-import { useTheme } from '../../global/themes';
+const { useTheme } = require('../../global/themes');
 import { useNavigation } from '@react-navigation/native';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
-import { RootStackParamList } from '../../routes';
 import { validateLogin } from '../../services/auth';
+
+type RootStackParamList = {
+  Login: undefined;
+  PokemonList: undefined;
+};
 
 export default function LoginScreen() {
   const [email, setEmail] = useState('');
@@ -52,8 +56,14 @@ export default function LoginScreen() {
   return (
     <View style={styles.container}>
       <View style={styles.boxTop}>
-        <Image source={Logo} style={styles.logo} />
+        <Image source={Logo} style={styles.logo} /> 
         <Text style={styles.textTop}>Pokédex</Text>
+        <Text style={{ color: theme.colors.textSecondary }}>
+Turma 34DS – ETE · Murilo Davi
+</Text>
+// global/themes.tsx (lightTheme)
+accent: '#4FC3F7',
+
       </View>
       
       <View style={styles.boxMid}>
