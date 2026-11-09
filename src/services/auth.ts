@@ -1,6 +1,6 @@
 const DEMO_USER = {
     email: 'pokemail@gmail.com',
-    password: 'pokemon',
+    password: 'pokemon ',
 };
 
 export function validateLogin(
